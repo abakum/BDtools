@@ -14,40 +14,40 @@ Sub WB_SheetActivate()
   Macro:="pick", _
   Description:= _
    "Like =IFERROR(INDEX(Table1,MATCH(LookupValue,Table1[key],MatchType),COLUMN(Table1[data])-COLUMN(Table1)+1),"""")" & vbCr & _
-   "Похожа на =ЕСЛИОШИБКА(ИНДЕКС(Table1;ПОИСКПОЗ(Искомое_значение;Table1[key];Тип_сопоставления);СТОЛБЕЦ(Table1[data])-СТОЛБЕЦ(Table1)+1);"""")", _
+   "РџРѕС…РѕР¶Р° РЅР° =Р•РЎР›РРћРЁРР‘РљРђ(РРќР”Р•РљРЎ(Table1;РџРћРРЎРљРџРћР—(РСЃРєРѕРјРѕРµ_Р·РЅР°С‡РµРЅРёРµ;Table1[key];РўРёРї_СЃРѕРїРѕСЃС‚Р°РІР»РµРЅРёСЏ);РЎРўРћР›Р‘Р•Р¦(Table1[data])-РЎРўРћР›Р‘Р•Р¦(Table1)+1);"""")", _
   Category:=5, _
   ArgumentDescriptions:=Array( _
    "LookupValue is looked up in Table1[key]" & vbCr & _
-   "Искомое_значение ищется в Table1[key]", _
+   "РСЃРєРѕРјРѕРµ_Р·РЅР°С‡РµРЅРёРµ РёС‰РµС‚СЃСЏ РІ Table1[key]", _
    "Table1[data] is a range or column or cell with results" & vbCr & _
-   "Table1[data] это диапазон или столбец или ячейка с результатами", _
+   "Table1[data] СЌС‚Рѕ РґРёР°РїР°Р·РѕРЅ РёР»Рё СЃС‚РѕР»Р±РµС† РёР»Рё СЏС‡РµР№РєР° СЃ СЂРµР·СѓР»СЊС‚Р°С‚Р°РјРё", _
    "Table1[key] is lookup array where LookupValue is looked up" & vbCr & _
-   "Table1[key] это Просматриваемый_массив где ищется Искомое_значение", _
+   "Table1[key] СЌС‚Рѕ РџСЂРѕСЃРјР°С‚СЂРёРІР°РµРјС‹Р№_РјР°СЃСЃРёРІ РіРґРµ РёС‰РµС‚СЃСЏ РСЃРєРѕРјРѕРµ_Р·РЅР°С‡РµРЅРёРµ", _
    "if MatchType=2 then search case sensitively via range(""Table1[key]"").Find" & vbCr & _
-   "если Тип_сопоставления=2 тогда поиск с учётом регистра через range(""Table1[key]"").Find")
+   "РµСЃР»Рё РўРёРї_СЃРѕРїРѕСЃС‚Р°РІР»РµРЅРёСЏ=2 С‚РѕРіРґР° РїРѕРёСЃРє СЃ СѓС‡С‘С‚РѕРј СЂРµРіРёСЃС‚СЂР° С‡РµСЂРµР· range(""Table1[key]"").Find")
  Application.MacroOptions _
   Macro:="matchCaseSensitive", _
   Description:= _
    "Like =MATCH(LookupValue,Table1[key],MatchType)" & vbCr & _
-   "Похожа на =ПОИСКПОЗ(Искомое_значение,Table1[key],Тип_сопоставления)", _
+   "РџРѕС…РѕР¶Р° РЅР° =РџРћРРЎРљРџРћР—(РСЃРєРѕРјРѕРµ_Р·РЅР°С‡РµРЅРёРµ,Table1[key],РўРёРї_СЃРѕРїРѕСЃС‚Р°РІР»РµРЅРёСЏ)", _
   Category:=5, _
   ArgumentDescriptions:=Array( _
    "LookupValue is looked up in Table1[key]" & vbCr & _
-   "Искомое_значение ищется в Table1[key]", _
+   "РСЃРєРѕРјРѕРµ_Р·РЅР°С‡РµРЅРёРµ РёС‰РµС‚СЃСЏ РІ Table1[key]", _
    "Table1[key] is lookup array where LookupValue is looked up" & vbCr & _
-   "Table1[key] это Просматриваемый_массив где ищется Искомое_значение", _
+   "Table1[key] СЌС‚Рѕ РџСЂРѕСЃРјР°С‚СЂРёРІР°РµРјС‹Р№_РјР°СЃСЃРёРІ РіРґРµ РёС‰РµС‚СЃСЏ РСЃРєРѕРјРѕРµ_Р·РЅР°С‡РµРЅРёРµ", _
    "if MatchType=2 then search case sensitively via range(""Table1[key]"").Find" & vbCr & _
-   "если Тип_сопоставления=2 тогда поиск с учётом регистра через range(""Table1[key]"").Find", _
+   "РµСЃР»Рё РўРёРї_СЃРѕРїРѕСЃС‚Р°РІР»РµРЅРёСЏ=2 С‚РѕРіРґР° РїРѕРёСЃРє СЃ СѓС‡С‘С‚РѕРј СЂРµРіРёСЃС‚СЂР° С‡РµСЂРµР· range(""Table1[key]"").Find", _
    "for Find default LookIn:=xlValues" & vbCr & _
-   "для Find по умолчанию Искать_среди:=xlValues", _
+   "РґР»СЏ Find РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РСЃРєР°С‚СЊ_СЃСЂРµРґРё:=xlValues", _
    "for Find default LookAt:=xlWhole" & vbCr & _
-   "для Find по умолчанию Искать_где:=xlWhole", _
+   "РґР»СЏ Find РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РСЃРєР°С‚СЊ_РіРґРµ:=xlWhole", _
    "for Find default SearchOrder:=xlByRows" & vbCr & _
-   "для Find по умолчанию Порядок_поиска:=xlByRows", _
+   "РґР»СЏ Find РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РџРѕСЂСЏРґРѕРє_РїРѕРёСЃРєР°:=xlByRows", _
    "for Find default SearchDirection:=xlNext" & vbCr & _
-   "для Find по умолчанию Направление_поиска:=xlNext", _
+   "РґР»СЏ Find РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РќР°РїСЂР°РІР»РµРЅРёРµ_РїРѕРёСЃРєР°:=xlNext", _
    "for Find default MatchCase:=True" & vbCr & _
-   "для Find по умолчанию Учитывать_регистр:=True")
+   "РґР»СЏ Find РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РЈС‡РёС‚С‹РІР°С‚СЊ_СЂРµРіРёСЃС‚СЂ:=True")
 End Sub
 
 Sub BD_Deactivate(WS As Worksheet)
@@ -138,17 +138,17 @@ Private Function sort2key(o As Object, rData As Range, rKey As Range, rLO As Ran
 End Function
 
 Function pick(key As Range, rData As Range, Optional rKey As Range, Optional MatchType As Variant = 2) As String
-Attribute pick.VB_Description = "Like =IFERROR(INDEX(Table1,MATCH(LookupValue,Table1[key],MatchType),COLUMN(Table1[data])-COLUMN(Table1)+1),"""")\rПохожа на =ЕСЛИОШИБКА(ИНДЕКС(Table1;ПОИСКПОЗ(Искомое_значение;Table1[key];Тип_сопоставления);СТОЛБЕЦ(Table1[data])-СТОЛБЕЦ(Table1)+1);"""")"
+Attribute pick.VB_Description = "Like =IFERROR(INDEX(Table1,MATCH(LookupValue,Table1[key],MatchType),COLUMN(Table1[data])-COLUMN(Table1)+1),"""")\rРџРѕС…РѕР¶Р° РЅР° =Р•РЎР›РРћРЁРР‘РљРђ(РРќР”Р•РљРЎ(Table1;РџРћРРЎРљРџРћР—(РСЃРєРѕРјРѕРµ_Р·РЅР°С‡РµРЅРёРµ;Table1[key];РўРёРї_СЃРѕРїРѕСЃС‚Р°РІР»РµРЅРёСЏ);РЎРўРћР›Р‘Р•Р¦(Table1[data])-РЎРўРћР›Р‘Р•Р¦(Table1)+1);"""")"
 Attribute pick.VB_ProcData.VB_Invoke_Func = " \n5"
- '=ЕСЛИОШИБКА(ВПР(A1;Таблица1;СТОЛБЕЦ(Таблица1[data])-СТОЛБЕЦ(Таблица1)+1;ЛОЖЬ);"")
- '=ЕСЛИОШИБКА(ИНДЕКС(Таблица1;ПОИСКПОЗ(A1;Таблица1[key];0);СТОЛБЕЦ(Таблица1[data])-СТОЛБЕЦ(Таблица1)+1);"")
- '=pick(A1;Таблица1[data])
- '=pick(A1;Таблица4[data];Таблица4[key])
- '=ЕСЛИОШИБКА(ИНДЕКС(Tabl2;ПОИСКПОЗ(E1;Tabl2Key;0);СТОЛБЕЦ(Tabl2Data)-СТОЛБЕЦ(Tabl2)+1);"")
+ '=Р•РЎР›РРћРЁРР‘РљРђ(Р’РџР (A1;РўР°Р±Р»РёС†Р°1;РЎРўРћР›Р‘Р•Р¦(РўР°Р±Р»РёС†Р°1[data])-РЎРўРћР›Р‘Р•Р¦(РўР°Р±Р»РёС†Р°1)+1;Р›РћР–Р¬);"")
+ '=Р•РЎР›РРћРЁРР‘РљРђ(РРќР”Р•РљРЎ(РўР°Р±Р»РёС†Р°1;РџРћРРЎРљРџРћР—(A1;РўР°Р±Р»РёС†Р°1[key];0);РЎРўРћР›Р‘Р•Р¦(РўР°Р±Р»РёС†Р°1[data])-РЎРўРћР›Р‘Р•Р¦(РўР°Р±Р»РёС†Р°1)+1);"")
+ '=pick(A1;РўР°Р±Р»РёС†Р°1[data])
+ '=pick(A1;РўР°Р±Р»РёС†Р°4[data];РўР°Р±Р»РёС†Р°4[key])
+ '=Р•РЎР›РРћРЁРР‘РљРђ(РРќР”Р•РљРЎ(Tabl2;РџРћРРЎРљРџРћР—(E1;Tabl2Key;0);РЎРўРћР›Р‘Р•Р¦(Tabl2Data)-РЎРўРћР›Р‘Р•Р¦(Tabl2)+1);"")
  '=pick(D1;Tabl2Data)
  '=pick(D1;Tabl2Data;Tabl2Key)
  Dim vM 'match
- Dim rLO As Range 'Таблица1 or Tabl2 as rData.ListObject.DataBodyRange or rData.Worksheet.sort.Rng
+ Dim rLO As Range 'РўР°Р±Р»РёС†Р°1 or Tabl2 as rData.ListObject.DataBodyRange or rData.Worksheet.sort.Rng
  If rData Is Nothing Then Exit Function
  If rData.ListObject Is Nothing Then
   If inSort(rData) Then 'rData is in Worksheet.Sort
@@ -200,7 +200,7 @@ Function matchCaseSensitive(lookupV As Variant, lookupA As Variant, Optional Mat
               Optional SearchOrder As Variant = xlByRows, _
               Optional SearchDirection As Variant = xlNext, _
               Optional MatchCase As Variant = True)
-Attribute matchCaseSensitive.VB_Description = "Like =MATCH(LookupValue,Table1[key],MatchType)\rПохожа на =ПОИСКПОЗ(Искомое_значение,Table1[key],Тип_сопоставления)"
+Attribute matchCaseSensitive.VB_Description = "Like =MATCH(LookupValue,Table1[key],MatchType)\rРџРѕС…РѕР¶Р° РЅР° =РџРћРРЎРљРџРћР—(РСЃРєРѕРјРѕРµ_Р·РЅР°С‡РµРЅРёРµ,Table1[key],РўРёРї_СЃРѕРїРѕСЃС‚Р°РІР»РµРЅРёСЏ)"
 Attribute matchCaseSensitive.VB_ProcData.VB_Invoke_Func = " \n5"
  'like Application.WorksheetFunction.match but case sensitive for String in lookupV and Range in lookupA
  On Error GoTo Error
@@ -223,5 +223,3 @@ Attribute matchCaseSensitive.VB_ProcData.VB_Invoke_Func = " \n5"
 Error:
  matchCaseSensitive = CVErr(2042)
 End Function
-
-
