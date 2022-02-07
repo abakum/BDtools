@@ -41,5 +41,7 @@ To do this, add `BD_Deactivate(Me)` to the `Worksheet_activate` of `BD` and `BD2
 To return from the database `BD` and `BD2` to worksheet `WS` or `WS2` from which they were called by double pressing any of the keys {RIGHT} {TAB} {ENTER}
 add `BD_SelectionChange(Target)` to `Worksheet_SelectionChange` of `BD` and `BD2`
 ## WB_Activate
+and add `WB_Activate` to `Workbook_SheetActivate`.
+It is also necessary to describe arguments UDF pick(...) and matchCaseSensitive(...) for `Excel Function Arguments Dialog Box`
 # [Использование:](https://github.com/abakum/BDtools/blob/main/usage.rus.txt)
 # Credits
