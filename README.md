@@ -11,7 +11,7 @@ like
 but if MatchType=2 or omitted, then the search will be case-sensitive via range("Table1[key]").Find
 
 ## UDF pick(lookupV,rData[,rKey,MatchType]) use case-sensitive search if MatchType is omitted
-When using a VLOOKUP or a bunch of INDEX and MATCH
+When using a `VLOOKUP` or a bunch of `INDEX` and `MATCH`
 ### ListObject.Sort
 * formulas for lookup `LookupValue` in the database `Table1`:
 
