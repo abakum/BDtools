@@ -36,7 +36,7 @@ When using a `VLOOKUP` or a bunch of `INDEX` and `MATCH`
 
 ## BD_Deactivate
 When maintaining a database, it is useful to sort them after editing is complete.
-To do this, add `BD_Deactivate(Me)` to the `Worksheet_activate` of `BD` and `BD2`
+To do this, add `BD_Deactivate(Me)` to the `Worksheet_Deactivate` of `BD` and `BD2`
 ## BD_SelectionChange
 To return from the database `BD` and `BD2` to worksheet `WS` or `WS2` from which they were called by double pressing any of the keys {RIGHT} {TAB} {ENTER}
 add `BD_SelectionChange(Target)` to `Worksheet_SelectionChange` of `BD` and `BD2`
