@@ -42,7 +42,8 @@ To return from the database `BD` and `BD2` to worksheet `WS` or `WS2` from which
 add `BD_SelectionChange(Target)` to `Worksheet_SelectionChange` of `BD` and `BD2`
 ## WB_Activate
 and add `WB_Activate` to `Workbook_SheetActivate`.
-It is also necessary to describe arguments UDF pick(...) and matchCaseSensitive(...) for [Insert Function dialog box](https://support.microsoft.com/en-us/office/insert-function-74474114-7c7f-43f5-bec3-096c56e2fb13)
 # [Использование:](https://github.com/abakum/BDtools/blob/main/usage.rus.txt)
+# Installation:
+* Alt+F8 RunMacroOptions Run - Describe UDF for dialog boxes Insert_Function and Function_Argument. Look [RunMacroOptions](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Sub-,RunMacroOptions,-())
 # Credits
 * 
