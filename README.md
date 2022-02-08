@@ -44,6 +44,6 @@ add `BD_SelectionChange(Target)` to `Worksheet_SelectionChange` of `BD` and `BD2
 and add `WB_Activate` to `Workbook_SheetActivate`.
 # [Использование:](https://github.com/abakum/BDtools/blob/main/usage.rus.txt)
 # Installation:
-* Alt+F8 RunMacroOptions Run - Describe UDF for dialog boxes Insert_Function and Function_Argument. Look [RunMacroOptions](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Sub%20RunMacroOptions())
+* Alt+F8 RunMacroOptions Run - Describe UDF for dialog boxes Insert_Function and Function_Argument. Look [RunMacroOptions](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Sub%20RunMacroOptions)
 # Credits
 * 
