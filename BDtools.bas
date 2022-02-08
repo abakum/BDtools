@@ -8,7 +8,7 @@ Function matchCaseSensitive(lookupV As Variant, lookupA As Variant, _
                             Optional SearchOrder As Variant = xlByRows, _
                             Optional SearchDirection As Variant = xlNext, _
                             Optional MatchCase As Variant = True)
-Attribute matchCaseSensitive.VB_Description = "Like =MATCH(LookupValue,LookupArray,MatchType)\nПохожа на =ПОИСКПОЗ(Искомое_значение;Просматриваемый_массив;Тип_сопоставления)"
+Attribute matchCaseSensitive.VB_Description = "Like =MATCH(lookupV,lookupA,MatchType)\nПохожа на =ПОИСКПОЗ(Искомое_значение;Просматриваемый_массив;Тип_сопоставления)"
 Attribute matchCaseSensitive.VB_ProcData.VB_Invoke_Func = " \n5"
  'like Application.match but case sensitive for String in lookupV and Range in lookupA
  'to describe UDF for dialog boxes Insert_Function and Function_Argument once call matchCaseSensitive(ErrMacroOptions(), v)
@@ -16,15 +16,15 @@ Attribute matchCaseSensitive.VB_ProcData.VB_Invoke_Func = " \n5"
   Application.MacroOptions _
    Macro:="matchCaseSensitive", _
    Description:= _
-    "Like =MATCH(LookupValue,LookupArray,MatchType)" & vbLf & _
+    "Like =MATCH(lookupV,lookupA,MatchType)" & vbLf & _
     "Похожа на =ПОИСКПОЗ(Искомое_значение;Просматриваемый_массив;Тип_сопоставления)", _
    Category:=5, _
    ArgumentDescriptions:=Array( _
-    "LookupValue is looked up in LookupArray" & vbLf & _
+    "lookupV is looked up in LookupA" & vbLf & _
     "Искомое_значение ищется в Просматриваемый_массив", _
-    "LookupArray is array where LookupValue is looked up" & vbLf & _
+    "LookupA is array where LookupV is looked up" & vbLf & _
     "Просматриваемый_массив это то где ищется Искомое_значение", _
-    "if MatchType=2 then search case-sensitively via range(""LookupArray"").Find" & vbLf & _
+    "if MatchType=2 then search case-sensitively via range(""LookupA"").Find" & vbLf & _
     "если Тип_сопоставления=2 тогда поиск с учётом регистра будет через range(""Просматриваемый_массив"").Find", _
     "for Find default LookIn:=xlValues" & vbLf & _
     "для Find по умолчанию Искать_среди:=xlValues", _
@@ -39,7 +39,6 @@ Attribute matchCaseSensitive.VB_ProcData.VB_Invoke_Func = " \n5"
   Exit Function
  End If
  On Error GoTo error
- If VarType(lookupA) < vbArray Then GoTo error
  If MatchType = 2 Then
   If VarType(lookupV) = vbString And TypeName(lookupA) = "Range" Then
    matchCaseSensitive = lookupA.Find( _
@@ -63,7 +62,7 @@ End Function
 Function pick(lookupV As Variant, rData As Variant, _
               Optional lookupA As Variant, _
               Optional MatchType As Variant = 2) As String
-Attribute pick.VB_Description = "Like =IFERROR(INDEX(Table1,MATCH(LookupValue,Table1[key],MatchType),COLUMN(Table1[data])-COLUMN(Table1)+1),"""")\nПохожа на =ЕСЛИОШИБКА(ИНДЕКС(Table1;ПОИСКПОЗ(Искомое_значение;Table1[key];Тип_сопоставления);СТОЛБЕЦ(Table1[data])-СТОЛБЕЦ(Table1)+1);"""")"
+Attribute pick.VB_Description = "Like =IFERROR(INDEX(Table1,MATCH(LookupV,Table1[key],MatchType),COLUMN(Table1[data])-COLUMN(Table1)+1),"""")\nПохожа на =ЕСЛИОШИБКА(ИНДЕКС(Table1;ПОИСКПОЗ(Искомое_значение;Table1[key];Тип_сопоставления);СТОЛБЕЦ(Table1[data])-СТОЛБЕЦ(Table1)+1);"""")"
 Attribute pick.VB_ProcData.VB_Invoke_Func = " \n5"
 'to describe UDF for dialog boxes Insert_Function and Function_Argument once call pick(ErrMacroOptions(), v)
  Dim rLO As Range 'rData.ListObject.DataBodyRange or rData.Worksheet.sort.Rng
@@ -75,15 +74,15 @@ Attribute pick.VB_ProcData.VB_Invoke_Func = " \n5"
   Application.MacroOptions _
    Macro:="pick", _
    Description:= _
-    "Like =IFERROR(INDEX(Table1,MATCH(LookupValue,Table1[key],MatchType),COLUMN(Table1[data])-COLUMN(Table1)+1),"""")" & vbLf & _
+    "Like =IFERROR(INDEX(Table1,MATCH(LookupV,Table1[key],MatchType),COLUMN(Table1[data])-COLUMN(Table1)+1),"""")" & vbLf & _
     "Похожа на =ЕСЛИОШИБКА(ИНДЕКС(Table1;ПОИСКПОЗ(Искомое_значение;Table1[key];Тип_сопоставления);СТОЛБЕЦ(Table1[data])-СТОЛБЕЦ(Table1)+1);"""")", _
    Category:=5, _
    ArgumentDescriptions:=Array( _
-    "LookupValue is looked up in Table1[key]" & vbLf & _
+    "lookupV is looked up in Table1[key]" & vbLf & _
     "Искомое_значение ищется в Table1[key]", _
     "Table1[data] is a range with results" & vbLf & _
     "Table1[data] это диапазон с результатами", _
-    "Table1[key] is lookup array where LookupValue is looked up" & vbLf & _
+    "Table1[key] is lookup array where lookupV is looked up" & vbLf & _
     "Table1[key] это Просматриваемый_массив где ищется Искомое_значение", _
     "if MatchType=2 then search case-sensitively via range(""Table1[key]"").Find" & vbLf & _
     "если Тип_сопоставления=2 тогда поиск с учётом регистра через range(""Table1[key]"").Find")
@@ -100,7 +99,7 @@ Attribute pick.VB_ProcData.VB_Invoke_Func = " \n5"
    'rData is not in Worksheet.Sort and not in ListObject, then rLO is entirely determined
    If rKey Is Nothing Then
     'by rData and columns(1)
-    Set rKey = Cells(1, 1)
+    Set rKey = rData.Worksheet.Cells(1, 1)
    End If
    dKD = rKey.column - rData.column
    If rKey.Rows.Count > 1 Then
@@ -224,8 +223,11 @@ Private Function sort2key(o As Object, dDcolumn As Double, lookupA As Variant, r
    If .sort.SortFields Is Nothing Then Exit Function
    If .sort.SortFields.Count < 1 Then Exit Function
    Set r = .sort.SortFields(1).key
-   Set sort2key = r
-   If .sort.Header = xlYes Then Set sort2key = r.Offset(1).Resize(r.Rows.Count - 1)
+   If .sort.Header = xlYes Then
+    Set sort2key = r.Offset(1).Resize(r.Rows.Count - 1)
+   Else
+    Set sort2key = r
+   End If
   End With
  End If
 End Function
