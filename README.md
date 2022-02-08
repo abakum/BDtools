@@ -40,8 +40,8 @@ To do this, add `BD_Deactivate(Me)` to the `Worksheet_Deactivate` of `BD` and `B
 ## [BD_SelectionChange](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Sub%20BD_SelectionChange)
 To return from the database `BD` and `BD2` to worksheet `WS` or `WS2` from which they were called by double pressing any of the keys {RIGHT} {TAB} {ENTER}
 add `BD_SelectionChange(Target)` to `Worksheet_SelectionChange` of `BD` and `BD2`
-## [WB_Activate](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Sub%20WB_Activate)
-and add `WB_Activate` to `Workbook_SheetActivate`.
+## [WB_SheetActivate](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Sub%20WB_SheetActivate)
+and add `WB_SheetActivate` to `Workbook_SheetActivate`.
 # [Использование:](https://github.com/abakum/BDtools/blob/main/usage.rus.txt)
 # Installation:
 * Alt+F8 RunMacroOptions Run - Describe UDF for dialog boxes Insert_Function and Function_Argument. Look [RunMacroOptions](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Sub%20RunMacroOptions)
