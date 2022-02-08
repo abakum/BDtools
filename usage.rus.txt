@@ -1,26 +1,26 @@
 Автоматизация баз данных и упрощения формул с использованием UDF pick(...) и matchCaseSensitive(...)
 
 При использование ВПР или связки ИНДЕКС и ПОИСКПОЗ
-формулы для поиска LookupValue в справочнике Таблица1 из ListObject.Sort 
-=ЕСЛИОШИБКА(ВПР(LookupValue;Таблица1;СТОЛБЕЦ(Таблица1[data])-СТОЛБЕЦ(Таблица1)+1;ЛОЖЬ);"")
-=ЕСЛИОШИБКА(ИНДЕКС(Таблица1;ПОИСКПОЗ(LookupValue;Таблица1[key];0);СТОЛБЕЦ(Таблица1[data])-СТОЛБЕЦ(Таблица1)+1);"")
+формулы для поиска LookupV в справочнике Таблица1 из ListObject.Sort 
+=ЕСЛИОШИБКА(ВПР(LookupV;Таблица1;СТОЛБЕЦ(Таблица1[data])-СТОЛБЕЦ(Таблица1)+1;ЛОЖЬ);"")
+=ЕСЛИОШИБКА(ИНДЕКС(Таблица1;ПОИСКПОЗ(LookupV;Таблица1[key];0);СТОЛБЕЦ(Таблица1[data])-СТОЛБЕЦ(Таблица1)+1);"")
 можно упростить до
-=pick(LookupValue;Таблица1[data])
+=pick(LookupV;Таблица1[data])
 или если не указаны cSort.SortFields
-=pick(LookupValue;Таблица1[data];Таблица1[key])
+=pick(LookupV;Таблица1[data];Таблица1[key])
 
 формулу для справочника в Worksheet.Sort Table2
-=ЕСЛИОШИБКА(ИНДЕКС(Table2;ПОИСКПОЗ(E1;Table2Key;0);СТОЛБЕЦ(Table2Data)-СТОЛБЕЦ(Table2)+1);"")
+=ЕСЛИОШИБКА(ИНДЕКС(Table2;ПОИСКПОЗ(LookupV;Table2Key;0);СТОЛБЕЦ(Table2Data)-СТОЛБЕЦ(Table2)+1);"")
 можно упростить до
-=pick(E1;Table2Data)
+=pick(LookupV;Table2Data)
 
 Для поиска с учётом регистра вместо
-=ПОИСКПОЗ(I1;Таблица2[key];0)
+=ПОИСКПОЗ(LookupV;Таблица2[key];0)
 можно использовать
-=matchCaseSensitive(I1;Таблица2[key])
+=matchCaseSensitive(LookupV;Таблица2[key])
 
 При ведении справочников полезно их сортировать после завершения редактирования
 для чего добавляем BD_Deactivate(Me) в Worksheet_Deactivate справочников BD и BD2
 и возвращаться в место откуда они были вызваны WS или WS2 по двойному нажатию любой из клавиш {RIGHT} {TAB} {ENTER}	
 для чего добавляем BD_SelectionChange(Target) в Worksheet_SelectionChange справочников BD и BD2
-и добавляем WB_Activate в Workbook_SheetActivate
+и добавляем WB_SheetActivate в Workbook_SheetActivate
