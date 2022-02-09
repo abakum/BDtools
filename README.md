@@ -34,6 +34,9 @@ When using a `VLOOKUP` or a bunch of `INDEX` and `MATCH`
 
 `=pick(lookupV;Table2Data;Table1Key)`
 
+# [Использование:](https://github.com/abakum/BDtools/blob/main/usage.rus.txt)
+# Installation:
+* Alt+F8 [RunMacroOptions](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Sub%20RunMacroOptions) Run - Describe UDF for dialog boxes Insert_Function and Function_Argument 
 ## [BD_Deactivate](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Sub%20BD_Deactivate)
 When maintaining a database, it is useful to sort them after editing is complete.
 To do this, add `BD_Deactivate(Me)` to the `Worksheet_Deactivate` of `BD` and `BD2`
@@ -42,8 +45,5 @@ To return from the database `BD` and `BD2` to worksheet `WS` or `WS2` from which
 add `BD_SelectionChange(Target)` to `Worksheet_SelectionChange` of `BD` and `BD2`
 ## [WB_SheetActivate](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Sub%20WB_SheetActivate)
 and add `WB_SheetActivate` to `Workbook_SheetActivate`.
-# [Использование:](https://github.com/abakum/BDtools/blob/main/usage.rus.txt)
-# Installation:
-* Alt+F8 [RunMacroOptions](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Sub%20RunMacroOptions) Run - Describe UDF for dialog boxes Insert_Function and Function_Argument 
 # Credits
 * 
