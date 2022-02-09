@@ -5,12 +5,10 @@ BDtools
 
 UDF matchCaseSensitive(lookupV,lookupA[,MatchType,...])
 
-Для поиска с учётом регистра вместо
-=ПОИСКПОЗ(LookupV;Таблица1[key];0)
-можно использовать
-=matchCaseSensitive(LookupV;Таблица1[key])
-или что тоже самое 
-=matchCaseSensitive(LookupV;Таблица1[key];2)
+=matchCaseSensitive(lookupV,Table1[key],MatchType)
+это то же самое, что
+=MATCH(lookupV;Table1[ключ];MatchType)
+но если MatchType=2 или опущен, то поиск будет осуществляться с учетом регистра через range("Table1[key]").Find
 
 UDF pick(lookupV,rData[,lookupA,MatchType,...]) использует поиск с учётом регистра если MatchType=2 или опущен
 
