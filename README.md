@@ -4,7 +4,7 @@ Database automation and formula simplification using UDF pick(...) and matchCase
 ## UDF [matchCaseSensitive](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Function%20matchCaseSensitive)(lookupV,lookupA[,MatchType,...])
 `=matchCaseSensitive(lookupV,Table1[key],MatchType)`
 
-like 
+the same as
 
 `=MATCH(lookupV,Table1[key],MatchType)`
 
@@ -23,6 +23,11 @@ When using a `VLOOKUP` or a bunch of `INDEX` and `MATCH`
 * or if ListObject.Sort.SortFields is not set then
 
 `=pick(lookupV;Table1[data];Table1[key])`
+
+* or if ListObject.Sort.SortFields is not set and the key field is the first in Table1 then
+
+`=pick(LookupV;Table1[data])`
+
 ### Worksheet.Sort
 * formulas for lookup `LookupValue` in the database `Table2`:
 
