@@ -1,4 +1,18 @@
+BDtools
 Автоматизация баз данных и упрощения формул с использованием UDF pick(...) и matchCaseSensitive(...)
+
+Использование:
+
+UDF matchCaseSensitive(lookupV,lookupA[,MatchType,...])
+
+Для поиска с учётом регистра вместо
+=ПОИСКПОЗ(LookupV;Таблица1[key];0)
+можно использовать
+=matchCaseSensitive(LookupV;Таблица1[key])
+или что тоже самое 
+=matchCaseSensitive(LookupV;Таблица1[key];2)
+
+UDF pick(lookupV,rData[,lookupA,MatchType,...]) использует поиск с учётом регистра если MatchType=2 или опущен
 
 При использование ВПР или связки ИНДЕКС и ПОИСКПОЗ
 формулы для поиска LookupV в справочнике Таблица1 из ListObject.Sort
@@ -34,10 +48,10 @@
 или
 =pick(LookupV;C11;B12:B13)
 
-Для поиска с учётом регистра вместо
-=ПОИСКПОЗ(LookupV;Таблица1[key];0)
-можно использовать
-=matchCaseSensitive(LookupV;Таблица1[key])
+Установка:
+
+Чтоб описать UDF для диалогов Вставить_Функцию и Аргументы_Функции
+Нажмите Alt+F8 RunMacroOptions Выполнить
 
 При ведении справочников полезно их сортировать и снимать фильтры после завершения редактирования
 для чего добавляем BD_Deactivate(Me) в Worksheet_Deactivate справочников BD и BD2
@@ -45,5 +59,3 @@
 для чего добавляем BD_SelectionChange(Target) в Worksheet_SelectionChange справочников BD и BD2
 и добавляем WB_SheetActivate в Workbook_SheetActivate
 
-Чтоб описать UDF для диалогов Вставить_Функцию и Аргументы_Функции
-Нажмите Alt+F8 RunMacroOptions Выполнить
