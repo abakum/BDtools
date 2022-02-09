@@ -38,7 +38,9 @@ When using a `VLOOKUP` or a bunch of `INDEX` and `MATCH`
 * or if Worksheet.Sort.SortFields is not set then
 
 `=pick(lookupV;Table2Data;Table1Key)`
+* or if Worksheet.Sort.SortFields is not set and the key field is the first in Table2 then
 
+`=pick(lookupV;Table1Data)`
 # [Использование:](https://github.com/abakum/BDtools/blob/main/usage.rus.txt)
 # Installation:
 * Alt+F8 [RunMacroOptions](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Sub%20RunMacroOptions) Run - Describe UDF for dialog boxes Insert_Function and Function_Argument 
