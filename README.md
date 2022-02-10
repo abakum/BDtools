@@ -32,21 +32,17 @@ When using a `IFERROR(VLOOKUP(...),...)` or `IFERROR(INDEX(...,MATCH(...),...),.
 `=IFERROR(INDEX(A12:C13,MATCH(LookupV,A12:A13,0),COLUMN(C12:C13)-COLUMN(A12:A13)+1),"")`\
 can be simplified to\
 `=pick(LookupV;C12:C13)`\
-if the `LookupA` is omitted, then it is `A:A`
+if the `LookupA` is omitted, then it is `intersect(Columns(1), rData.EntireRow)`
 * formulas for lookup `LookupV` in the `A12:C13` with headings `key` `key2` `data` for `LookupA` as `B12:B13`\
 `=IFERROR(INDEX(B12:C13,MATCH(LookupV,B12:B13,0),1+COLUMN(C12:C13)-COLUMN(B12:B13)),"")`\
 can be simplified to\
 `=pick(LookupV;C12:C13;B12:B13)` or `=pick(LookupV;C12:C13;B11)` or `=pick(LookupV;C11;B12:B13)`
-### rData in Range `L21:N22`
-* formulas for lookup `LookupV` in the `L21:N22` with headings `data` `key2` `key` for `LookupA` as `N21:N22`\
-`=IFERROR(INDEX(L21:N22,MATCH(LookupV,N21:N22,0),COLUMN(L21:L22)-COLUMN(L21:N22)+1),"")`\
+### rData in Range `A12:B13`
+* formulas for lookup `LookupV` in the `A12:B13` with headings `data` `key` for `LookupA` as `B12:B13`\
+`=IFERROR(INDEX(A12:B13,MATCH(LookupV,B12:B13`,0),COLUMN(A12:A13)-COLUMN(A12:B13)+1),"")`\
 can be simplified to\
-`=pick(LookupV;L21:L22)`\
-if the `LookupA` is omitted and data in `A:A`, then key in `B:B`
-* formulas for lookup `LookupV` in the `A11:C13` with headings `data` `key` `key2` for key in `C:C`\
-`=IFERROR(INDEX(A12:C13,MATCH(LookupV,C12:C13,0),COLUMN(A12:C13)-COLUMN(A12:C13)+1),"")`\
-can be simplified to\
-`=pick(LookupV;A12:A13;C12:C13)` or `=pick(LookupV;A12:A13;C11)` or `=pick(LookupV;A11;C12:C13)`
+`=pick(LookupV;A12:A13)`\
+if the `LookupA` is omitted and data in Columns(1), then it is `intersect(Columns(2), rData.EntireRow)`
 # [Использование:](https://github.com/abakum/BDtools/blob/main/usage.rus.txt)
 # Installation:
 * Alt+F8 [RunMacroOptions](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Sub%20RunMacroOptions) Run - Describe UDF for dialog boxes Insert_Function and Function_Argument 
