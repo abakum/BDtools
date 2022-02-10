@@ -32,12 +32,13 @@ When using a `IFERROR(VLOOKUP(...),...)` or `IFERROR(INDEX(...,MATCH(...),...),.
 * or if Worksheet.Sort.SortFields is not set and the data field is first in Table2 and the key field is second in Table2, then\
 `=pick(LookupV;Table1[data])`
 ### rData in Range `A12:C13`
-* formulas for lookup `LookupV` in the `A12:C13` with headings `key` `key2` `data` for `LookupA` as `A12:A13`\
+* formulas for lookup `LookupV` in the `A12:C13` with headings `key` `data2` `data` for `LookupA` as `A12:A13`\
 `=IFERROR(INDEX(A12:C13,MATCH(LookupV,A12:A13,0),COLUMN(C12:C13)-COLUMN(A12:A13)+1),"")`\
 can be simplified to\
 `=pick(LookupV;C12:C13)`\
 if the `LookupA` is omitted, then it is `intersect(rData.Worksheet.Columns(1), rData.EntireRow)`
-* formulas for lookup `LookupV` in the `A12:C13` with headings `key` `key2` `data` for `LookupA` as `B12:B13`\
+### rData in Range `B12:C13`
+* formulas for lookup `LookupV` in the `B12:C13` with headings `key` `data` for `LookupA` as `B12:B13`\
 `=IFERROR(INDEX(B12:C13,MATCH(LookupV,B12:B13,0),COLUMN(C12:C13)-COLUMN(B12:B13)+1),"")`\
 can be simplified to\
 `=pick(LookupV;C12:C13;B12:B13)` or `=pick(LookupV;C12:C13;B11)` or `=pick(LookupV;C11;B12:B13)`
