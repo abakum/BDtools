@@ -28,12 +28,12 @@ When using a `VLOOKUP` or a bunch of `INDEX` and `MATCH`
 * or if Worksheet.Sort.SortFields is not set and the key field is the first in Table2 then\
 `=pick(lookupV;Table1Data)`
 ### Range
-* formulas for lookup `LookupV` in the range A11:C13 with headings `key` `key2` `data` for key in A11\
+* formulas for lookup `LookupV` in the range `A11:C13` with headings `key` `key2` `data` for key in A11\
 `=IFERROR(INDEX(A12:C13,MATCH(LookupV,A12:A13,0),COLUMN(C12:C13)-COLUMN(A12:A13)+1),"")`\
 can be simplified to\
 `=pick(LookupV;C12:C13)`\
-if the key field is omitted, then it is A:A\
-* formulas for lookup `LookupV` in the range A11:C13 with headings `key` `key2` `data` for key2 in B11\
+if the key field is omitted, then it is `A:A`
+* formulas for lookup `LookupV` in the range `A11:C13` with headings `key` `key2` `data` for key2 in B11\
 `=IFERROR(INDEX(B12:C13,MATCH(LookupV,B12:B13,0),1+COLUMN(C12:C13)-COLUMN(B12:B13)),"")`\
 can be simplified to\
 `=pick(LookupV;C12:C13;B11)` or `=pick(LookupV;C11;B12:B13)`
