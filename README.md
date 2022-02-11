@@ -14,22 +14,22 @@ When using a `IFERROR(VLOOKUP(...),...)` or `IFERROR(INDEX(...,MATCH(...),...),.
 `=IFERROR(INDEX(Table1,MATCH(lookupV,Table1[key],0),COLUMN(Table1[data])-COLUMN(Table1)+1),"")`
 * can be simplified to:\
 `=pick(lookupV;Table1[data])`
-* or if ListObject.Sort.SortFields is not set, then\
+* if ListObject.Sort.SortFields is not set, then\
 `=pick(lookupV;Table1[data];Table1[key])`
-* or if ListObject.Sort.SortFields is not set and the key field is the first in Table1, then\
+* if ListObject.Sort.SortFields is not set and the key field is the first in Table1, then\
 `=pick(LookupV;Table1[data])`
-* or if ListObject.Sort.SortFields is not set and the data field is first in Table1 and the key field is second in Table1, then\
+* if ListObject.Sort.SortFields is not set and the data field is first in Table1 and the key field is second in Table1, then\
 `=pick(LookupV;Table1[data])`
 ### rData in Worksheet.Sort `Table2`
 * formulas for lookup `LookupV` in the `Table2`:\
 `=IFERROR(INDEX(Table2,MATCH(lookupV,Table2Key,0),COLUMN(Table2Data)-COLUMN(Table2)+1),"")`
 * can be simplified to:\
 `=pick(lookupV;Table1Data)`
-* or if Worksheet.Sort.SortFields is not set, then\
+* if Worksheet.Sort.SortFields is not set, then\
 `=pick(lookupV;Table2Data;Table1Key)`
-* or if Worksheet.Sort.SortFields is not set and the key field is the first in Table2, then\
+* if Worksheet.Sort.SortFields is not set and the key field is the first in Table2, then\
 `=pick(lookupV;Table1Data)`
-* or if Worksheet.Sort.SortFields is not set and the data field is first in Table2 and the key field is second in Table2, then\
+* if Worksheet.Sort.SortFields is not set and the data field is first in Table2 and the key field is second in Table2, then\
 `=pick(LookupV;Table1[data])`
 ### rData in Range `A12:C13`
 * formulas for lookup `LookupV` in the `A12:C13` with headings `key` `data2` `data` for `LookupA` as `A12:A13`\
