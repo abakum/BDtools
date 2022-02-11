@@ -41,7 +41,9 @@ When using a `IFERROR(VLOOKUP(...),...)` or `IFERROR(INDEX(...,MATCH(...),...),.
 * formulas for lookup `LookupV` in the `B12:C13` with headings `key` `data` for `LookupA` as `B12:B13`\
 `=IFERROR(INDEX(B12:C13,MATCH(LookupV,B12:B13,0),COLUMN(C12:C13)-COLUMN(B12:B13)+1),"")`
 * can be simplified to\
-`=pick(LookupV;C12:C13;B12:B13)` or `=pick(LookupV;C12:C13;B11)` or `=pick(LookupV;C11;B12:B13)`
+`=pick(LookupV;C12:C13;B12:B13)`
+* or `=pick(LookupV;C12:C13;B11)` or `=pick(LookupV;C12:C13;B:B)`
+* or `=pick(LookupV;C11;B12:B13)` or `=pick(LookupV;C:C;B12:B13)`
 ### rData in Range `A12:B13`
 * formulas for lookup `LookupV` in the `A12:B13` with headings `data` `key` for `LookupA` as `B12:B13`\
 `=IFERROR(INDEX(A12:B13,MATCH(LookupV,B12:B13,0),COLUMN(A12:A13)-COLUMN(A12:B13)+1),"")`
