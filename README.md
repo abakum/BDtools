@@ -32,24 +32,11 @@ When using a `IFERROR(VLOOKUP(...),...)` or `IFERROR(INDEX(...,MATCH(...),...),.
 * if Worksheet.Sort.SortFields is not set and the data field is first in Table2 and the key field is second in Table2, then\
 `=pick(LookupV;Table1[data])`
 ### rData in Range `A12:C13`
-* formulas for lookup `LookupV` in the `A12:C13` with headings `key` `data2` `data` for `LookupA` as `A12:A13`\
+* formulas for lookup `LookupV` in the `A12:C13` and `LookupA` as `A12:A13`\
 `=IFERROR(INDEX(A12:C13,MATCH(LookupV,A12:A13,0),COLUMN(C12:C13)-COLUMN(A12:A13)+1),"")`
 * can be simplified to\
-`=pick(LookupV;C12:C13)`
-* if the `LookupA` is omitted, then `LookupA` is `intersect(rData.Worksheet.Columns(1), rData.EntireRow)`
-### rData in Range `B12:C13`
-* formulas for lookup `LookupV` in the `B12:C13` with headings `key` `data` for `LookupA` as `B12:B13`\
-`=IFERROR(INDEX(B12:C13,MATCH(LookupV,B12:B13,0),COLUMN(C12:C13)-COLUMN(B12:B13)+1),"")`
-* can be simplified to\
-`=pick(LookupV;C12:C13;B12:B13)`
-* or `=pick(LookupV;C12:C13;B11)` or `=pick(LookupV;C12:C13;B:B)`
-* or `=pick(LookupV;C11;B12:B13)` or `=pick(LookupV;C:C;B12:B13)`
-### rData in Range `A12:B13`
-* formulas for lookup `LookupV` in the `A12:B13` with headings `data` `key` for `LookupA` as `B12:B13`\
-`=IFERROR(INDEX(A12:B13,MATCH(LookupV,B12:B13,0),COLUMN(A12:A13)-COLUMN(A12:B13)+1),"")`
-* can be simplified to\
-`=pick(LookupV;A12:A13)`
-* if the `LookupA` is omitted and data is rData.Worksheet.Columns(1), then `LookupA` is `intersect(rData.Worksheet.Columns(2), rData.EntireRow)`
+`=pick(LookupV;C12:C13;A12:C13)`
+* `LookupA` must not be omitted if rData is not in ListObject.Sort or Worksheet.Sort
 # [Использование:](https://github.com/abakum/BDtools/blob/main/usage.rus.txt)
 # Installation:
 * Alt+F8 [RunMacroOptions](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Sub%20RunMacroOptions) Run - Describe UDF for dialog boxes Insert_Function and Function_Argument 
