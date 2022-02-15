@@ -32,19 +32,11 @@ UDF pick(lookupV,rData[,lookupA,MatchType,...]) использует поиск 
   или если ключевое поле первое в Table2
   =pick(LookupV;Таблица1[data])
 
-Формулы для поиска LookupV в диапазоне A11:C13 с заголовками key key2 data
-для key в А11
+Формулы для поиска LookupV в диапазоне A11:C13 и LookupA в А12:A13
 =ЕСЛИОШИБКА(ИНДЕКС(A12:C13;ПОИСКПОЗ(LookupV;A12:A13;0);1+СТОЛБЕЦ(C12:C13)-СТОЛБЕЦ(A12:A13));"")
 можно упростить до
-=pick(LookupV;C12:C13)
-То есть если ключевое поле опущено значит оно а A:A
-
-для key2 в B11
-=ЕСЛИОШИБКА(ИНДЕКС(B12:C13;ПОИСКПОЗ(LookupV;B12:B13;0);1+СТОЛБЕЦ(C12:C13)-СТОЛБЕЦ(B12:B13));"")
-можно упростить до
-=pick(LookupV;C12:C13;B11)
-или
-=pick(LookupV;C11;B12:B13)
+=pick(LookupV;C12:C13;A12:A13)
+LookupA нельзя опускать если rData не находится в ListObject.Sort или Worksheet.Sort
 
 Установка:
 
