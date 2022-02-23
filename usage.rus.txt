@@ -13,7 +13,7 @@ UDF matchCaseSensitive(lookupV,lookupA[,MatchType,...])
 UDF pick(lookupV,rData[,lookupA,MatchType,...]) использует поиск с учётом регистра если MatchType=2 или опущен
 
 При использование ВПР или связки ИНДЕКС и ПОИСКПОЗ
-формулы для поиска LookupV в справочнике Таблица1 из ListObject.Sort
+формулы для поиска LookupV в справочнике Таблица1 из ListObject
 =ЕСЛИОШИБКА(ВПР(LookupV;Таблица1;СТОЛБЕЦ(Таблица1[data])-СТОЛБЕЦ(Таблица1)+1;ЛОЖЬ);"")
 =ЕСЛИОШИБКА(ИНДЕКС(Таблица1;ПОИСКПОЗ(LookupV;Таблица1[key];0);СТОЛБЕЦ(Таблица1[data])-СТОЛБЕЦ(Таблица1)+1);"")
 можно упростить до
@@ -35,8 +35,10 @@ UDF pick(lookupV,rData[,lookupA,MatchType,...]) использует поиск 
 Формулы для поиска LookupV в диапазоне A11:C13 и LookupA в А12:A13
 =ЕСЛИОШИБКА(ИНДЕКС(A12:C13;ПОИСКПОЗ(LookupV;A12:A13;0);1+СТОЛБЕЦ(C12:C13)-СТОЛБЕЦ(A12:A13));"")
 можно упростить до
-=pick(LookupV;C12:C13;A12:A13)
-LookupA нельзя опускать если rData не находится в ListObject.Sort или Worksheet.Sort
+=pick(LookupV;C12:C13;A12:A13) или
+=pick(LookupV;C:C;A12:C13) или 
+=pick(LookupV;C12:C13;A:A)
+LookupA нельзя опускать если rData не находится в ListObject или Worksheet.Sort
 
 Установка:
 
