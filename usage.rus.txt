@@ -8,7 +8,8 @@ UDF matchCaseSensitive(lookupV,lookupA[,MatchType,...])
 =matchCaseSensitive(lookupV,Table1[key],MatchType)
 это то же самое, что
 =MATCH(lookupV;Table1[ключ];MatchType)
-но если MatchType=2 или опущен, то поиск будет осуществляться с учетом регистра через range("Table1[key]").Find
+но если MatchType:=2 или опущен, то поиск будет осуществляться с учетом регистра через range("Table1[key]").Find
+если MatchType:=-2, то поиск также будет чувствительным к регистру но результатом будет не индекс, а set matchCaseSensitive=range("Table1[key]").Find
 
 UDF pick(lookupV,rData[,lookupA,MatchType,...]) использует поиск с учётом регистра если MatchType=2 или опущен
 
