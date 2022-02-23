@@ -5,7 +5,8 @@ Database automation and formula simplification using UDF pick(...) and matchCase
 `=matchCaseSensitive(lookupV,Table1[key],MatchType)`\
 the same as\
 `=MATCH(lookupV,Table1[key],MatchType)`\
-but if MatchType=2 or omitted, then the search will be case-sensitive via range("Table1[key]").Find
+but if MatchType:=2 or omitted, then the search will be case-sensitive via `range("Table1[key]").Find`\
+if MatchType:=-2, then the search will be case-sensitive and result will be not index but `set matchCaseSensitive=range("Table1[key]").Find`
 ## UDF [pick](https://github.com/abakum/BDtools/blob/main/BDtools.bas#:~:text=Function%20pick)(lookupV,rData[,lookupA,MatchType]) use case-sensitive search if MatchType is omitted
 When using a `IFERROR(VLOOKUP(...),...)` or `IFERROR(INDEX(...,MATCH(...),...),...)`
 ### rData in ListObject `Table1`
